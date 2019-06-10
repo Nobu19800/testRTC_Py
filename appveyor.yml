@@ -44,7 +44,7 @@ before_build:
   - set PYTHONPATH=%openrtm_path%\Lib\site-packages;%openrtm_path%\Lib\site-packages\OpenRTM_aist;%PYTHONPATH%
   - set PATH=%openrtm_path%\Lib\site-packages;%openrtm_path%;%PATH%
   - copy %openrtm_path%\omniidl.exe C:\Python%python%\
-  - cmake -G "%cmake_generator%" -A "%cmake_archtecture%" -S . -B../build
+  - cmake -DBUILD_TESTS=ON -G "%cmake_generator%" -A "%cmake_archtecture%" -S . -B../build
 
 build_script:
   - echo cmake --build ../build --config Release
