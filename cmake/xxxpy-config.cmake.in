@@ -1,0 +1,54 @@
+# XXXpy CMake config file
+#
+# This file sets the following variables:
+# XXXpy_FOUND - Always TRUE.
+# XXXpy_INCLUDE_DIRS - Directories containing the XXXpy include files.
+# XXXpy_IDL_DIRS - Directories containing the XXXpy IDL files.
+# XXXpy_LIBRARIES - Libraries needed to use XXXpy.
+# XXXpy_DEFINITIONS - Compiler flags for XXXpy.
+# XXXpy_VERSION - The version of XXXpy found.
+# XXXpy_VERSION_MAJOR - The major version of XXXpy found.
+# XXXpy_VERSION_MINOR - The minor version of XXXpy found.
+# XXXpy_VERSION_REVISION - The revision version of XXXpy found.
+# XXXpy_VERSION_CANDIDATE - The candidate version of XXXpy found.
+
+message(STATUS "Found XXXpy-@PROJECT_VERSION@")
+set(XXXpy_FOUND TRUE)
+
+find_package(<dependency> REQUIRED)
+
+#set(XXXpy_INCLUDE_DIRS
+#    "@CMAKE_INSTALL_PREFIX@/include/@PROJECT_NAME_LOWER@-@PROJECT_VERSION_MAJOR@"
+#    ${<dependency>_INCLUDE_DIRS}
+#    )
+#
+#set(XXXpy_IDL_DIRS
+#    "@CMAKE_INSTALL_PREFIX@/include/@PROJECT_NAME_LOWER@-@PROJECT_VERSION_MAJOR@/idl")
+set(XXXpy_INCLUDE_DIRS
+    "@CMAKE_INSTALL_PREFIX@/include/@CPACK_PACKAGE_FILE_NAME@"
+    ${<dependency>_INCLUDE_DIRS}
+    )
+set(XXXpy_IDL_DIRS
+    "@CMAKE_INSTALL_PREFIX@/include/@CPACK_PACKAGE_FILE_NAME@/idl")
+
+
+if(WIN32)
+    set(XXXpy_LIBRARIES
+        "@CMAKE_INSTALL_PREFIX@/@LIB_INSTALL_DIR@/@CMAKE_SHARED_LIBRARY_PREFIX@@PROJECT_NAME_LOWER@@CMAKE_STATIC_LIBRARY_SUFFIX@"
+        ${<dependency>_LIBRARIES}
+        )
+else(WIN32)
+    set(XXXpy_LIBRARIES
+        "@CMAKE_INSTALL_PREFIX@/@LIB_INSTALL_DIR@/@CMAKE_SHARED_LIBRARY_PREFIX@@PROJECT_NAME_LOWER@@CMAKE_SHARED_LIBRARY_SUFFIX@"
+        ${<dependency>_LIBRARIES}
+        )
+endif(WIN32)
+
+set(XXXpy_DEFINITIONS ${<dependency>_DEFINITIONS})
+
+set(XXXpy_VERSION @PROJECT_VERSION@)
+set(XXXpy_VERSION_MAJOR @PROJECT_VERSION_MAJOR@)
+set(XXXpy_VERSION_MINOR @PROJECT_VERSION_MINOR@)
+set(XXXpy_VERSION_REVISION @PROJECT_VERSION_REVISION@)
+set(XXXpy_VERSION_CANDIDATE @PROJECT_VERSION_CANDIDATE@)
+
