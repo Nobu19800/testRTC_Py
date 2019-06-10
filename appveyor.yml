@@ -43,6 +43,7 @@ before_build:
       }
   - set PYTHONPATH=%openrtm_path%\Lib\site-packages;%PYTHONPATH%
   - set PATH=%openrtm_path%\Lib\site-packages;%PATH%
+  - cmake -G "%cmake_generator%" -A "%cmake_archtecture%" -S . -B../build
 
 build_script:
   - echo cmake --build ../build --config Release
