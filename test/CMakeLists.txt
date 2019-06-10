@@ -1,9 +1,9 @@
-#add_custom_target(idlcompile ${CMAKE_BINARY_DIR}/idlcompile.bat
-#  WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
-#)
+add_custom_target(idlcompile ${CMAKE_BINARY_DIR}/idlcompile.bat
+  WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
+)
 
 
-#add_dependencies(${PROJECT_NAME} idlcompile)
+add_dependencies(idlcompile ${PROJECT_NAME})
 
 
 add_test(NAME ${PROJECT_NAME}_test COMMAND ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/${PROJECT_NAME}Test.py -o "logger.enable:NO" WORKING_DIRECTORY ${CMAKE_BINARY_DIR})
