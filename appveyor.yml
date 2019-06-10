@@ -64,6 +64,7 @@ only_commits:
   files:
     - appveyor.yml
     - CMakeLists.txt
-    - include/
+    - XXXpy.py
+    - MyService_idl_example.py
     - src/
     - test/
