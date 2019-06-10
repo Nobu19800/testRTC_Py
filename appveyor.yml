@@ -45,8 +45,8 @@ before_build:
   - set PATH=%openrtm_path%\Lib\site-packages;%PATH%
 
 build_script:
-  - echo cmake --build %nproc% --config Release
-  - cmake --build ../build -j %nproc% --config Release
+  - echo cmake --build ../build --config Release
+  - cmake --build ../build --config Release
   - python c:\workspace\XXXpy\test\XXXpyTest.py
   #- cmake --build ../build --target RUN_TESTS --config Release
 
