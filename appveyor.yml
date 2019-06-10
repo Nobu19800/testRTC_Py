@@ -46,7 +46,7 @@ before_build:
   - copy %openrtm_path%\omniidl.exe C:\Python%python%\
   - cmake --version
   - echo cmake -DBUILD_TESTS=ON -DOpenRTM_DIR=%openrtm_path%/OpenRTM-aist/%openrtm_version%/cmake -G "%cmake_generator%" -A "%cmake_archtecture%" -S . -B../build
-  - cmake -DBUILD_TESTS=ON -G "%cmake_generator%" -A "%cmake_archtecture%" -S . -B../build
+  - cmake -DBUILD_TESTS=ON -DOpenRTM_DIR=%openrtm_path%/OpenRTM-aist/%openrtm_version%/cmake -G "%cmake_generator%" -A "%cmake_archtecture%" -S . -B../build
 
 build_script:
   - echo cmake --build ../build --config Release
