@@ -41,7 +41,7 @@ before_build:
         $msi = Start-Process msiexec.exe -ArgumentList $arg -PassThru
         Wait-Process -Id ($msi.id)
       }
-  - set PYTHONPATH=%openrtm_path%\Lib\site-packages;%PYTHONPATH%
+  - set PYTHONPATH=%openrtm_path%\Lib\site-packages;%openrtm_path%\Lib\site-packages\OpenRTM_aist;%PYTHONPATH%
   - set PATH=%openrtm_path%\Lib\site-packages;%PATH%
   - dir %openrtm_path%\Lib\site-packages
   - cmake -G "%cmake_generator%" -A "%cmake_archtecture%" -S . -B../build
