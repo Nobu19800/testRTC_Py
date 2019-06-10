@@ -1,4 +1,4 @@
-add_custom_target(idlcompile idlcompile.bat
+add_custom_target(idlcompile ${CMAKE_BINARY_DIR}/idlcompile.bat
   WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
 )
 
