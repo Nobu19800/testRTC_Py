@@ -51,8 +51,8 @@ before_build:
 build_script:
   - dir c:\workspace\build
   - echo cmake --build ../build --config Release
-  - dir c:\workspace\build
   - cmake --build ../build --config Release
+  - dir c:\workspace\build
   - cmd /c idlcompile.bat
   # - python c:\workspace\XXXpy\test\XXXpyTest.py
   - cmake --build ../build --target RUN_TESTS --config Release
