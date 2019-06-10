@@ -50,8 +50,8 @@ build_script:
   - echo cmake --build ../build --config Release
   - cmake --build ../build --config Release
   - cmd /c idlcompile.bat
-  - python c:\workspace\XXXpy\test\XXXpyTest.py
-  #- cmake --build ../build --target RUN_TESTS --config Release
+  # - python c:\workspace\XXXpy\test\XXXpyTest.py
+   cmake --build ../build --target RUN_TESTS --config Release
 
 
 cache:
