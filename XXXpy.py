@@ -287,5 +287,6 @@ def main():
 	mgr.runManager()
 
 if __name__ == "__main__":
-	main()
+	pass
+	#main()
 
