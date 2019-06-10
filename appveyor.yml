@@ -49,6 +49,7 @@ before_build:
   - cmake -DBUILD_TESTS=ON -DOpenRTM_DIR=%openrtm_path%/OpenRTM-aist/%openrtm_version%/cmake -G "%cmake_generator%" -A "%cmake_archtecture%" -S . -B../build
 
 build_script:
+  - dir c:\workspace\build
   - echo cmake --build ../build --config Release
   - cmake --build ../build --config Release
   - cmd /c idlcompile.bat
