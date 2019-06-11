@@ -11,11 +11,10 @@
 """
 import sys
 import time
+import os
+print(os.environ["PYTHONPATH"])
 sys.path.append(".")
 print(sys.path)
 # Import RTM module
 import OpenRTM_aist
 #import RTC
-
-
-
