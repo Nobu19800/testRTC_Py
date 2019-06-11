@@ -14,8 +14,8 @@ import time
 sys.path.append(".")
 
 # Import RTM module
-import OpenRTM_aist
-import RTC
+#import OpenRTM_aist
+#import RTC
 
 
 
