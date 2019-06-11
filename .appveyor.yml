@@ -58,11 +58,11 @@ build_script:
 
 
 cache:
-  - C:/openrtm -> appveyor.yml
+  - C:/openrtm -> .appveyor.yml
 
 only_commits:
   files:
-    - appveyor.yml
+    - .appveyor.yml
     - CMakeLists.txt
     - XXXpy.py
     - MyService_idl_example.py
