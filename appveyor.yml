@@ -52,7 +52,6 @@ before_build:
 build_script:
   - echo cmake --build ../build --target idlcompile --config Release
   - cmake --build ../build --target idlcompile --config Release
-  - cmd /c idlcompile.bat
   # - python c:\workspace\XXXpy\test\XXXpyTest.py
   - echo cmake --build ../build --target RUN_TESTS --config Release
   - cmake --build ../build --target RUN_TESTS --config Release
