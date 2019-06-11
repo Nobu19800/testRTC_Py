@@ -4,6 +4,7 @@ platform:
 - x64
 environment:
   openrtm_version: 1.2.0
+  CTEST_OUTPUT_ON_FAILURE: 1
   matrix:
     - cmake_generator: Visual Studio 15 2017
       cmake_archtecture: x64
