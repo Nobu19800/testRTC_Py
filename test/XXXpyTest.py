@@ -23,6 +23,8 @@ import MyService_idl
 # <rtc-template block="service_impl">
 from MyService_idl_example import *
 
+import XXXpy
+
 # </rtc-template>
 
 # Import Service stub modules
@@ -266,13 +268,13 @@ class XXXpyTest(OpenRTM_aist.DataFlowComponentBase):
 	#	return RTC.RTC_OK
 
 	def runTest(self):
-		return False
+		return True
 	
 
 def RunTest():
 	manager = OpenRTM_aist.Manager.instance()
 	comp = manager.getComponent("XXXpyTest0")
-	if comp == None:
+	if comp is None:
 		print('Component get failed.', file=sys.stderr)
 	return comp.runTest()
 
@@ -285,6 +287,7 @@ def XXXpyTestInit(manager):
 
 def MyModuleInit(manager):
     XXXpyTestInit(manager)
+    XXXpy.XXXpyInit(manager)
 
     # Create a component
     comp = manager.createComponent("XXXpyTest")
