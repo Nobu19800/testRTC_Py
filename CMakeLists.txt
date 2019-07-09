@@ -56,7 +56,7 @@ function(get_pkgmgr ARG0)
 endfunction(get_pkgmgr)
 
 get_dist(DIST_NAME)
-MESSAGE(STATUS "Distribution is ${DIST_NAME}")
+message(STATUS "Distribution is ${DIST_NAME}")
 
 get_pkgmgr(PKGMGR)
 if(PKGMGR AND NOT LINUX_PACKAGE_GENERATOR)
@@ -120,11 +120,8 @@ if(UNIX)
 endif()
 
 foreach(target ${EXEC_FILES})
-  add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy
-        ${PROJECT_SOURCE_DIR}/${target} ${PROJECT_BINARY_DIR}
-  )
-endforeach()          
+  configure_file(${PROJECT_SOURCE_DIR}/${target} ${PROJECT_BINARY_DIR}/ COPYONLY)
+endforeach()
 
 install(PROGRAMS ${EXEC_FILES} DESTINATION "${INSTALL_PREFIX}"
         COMPONENT component)

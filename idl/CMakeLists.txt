@@ -13,8 +13,6 @@ else()
   )
 endif()
 
-add_dependencies(idlcompile ${PROJECT_NAME})
-
 
 add_custom_target( ${PROJECT_NAME} ALL
   COMMAND ${CMAKE_COMMAND} -E make_directory ${PROJECT_BINARY_DIR}/idl
