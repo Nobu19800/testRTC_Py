@@ -134,10 +134,7 @@ foreach(target ${EXEC_FILES})
     COMMAND ${CMAKE_COMMAND} -E copy
         ${PROJECT_SOURCE_DIR}/${target} ${PROJECT_BINARY_DIR}
   )
-endforeach()    
-
-install(DIRECTORY idl DESTINATION "${INSTALL_PREFIX}"
-        COMPONENT component)
+endforeach()
 
 install(PROGRAMS ${EXEC_FILES} DESTINATION "${INSTALL_PREFIX}"
         COMPONENT component)
