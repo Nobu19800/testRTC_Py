@@ -17,7 +17,7 @@ RUN apt-get update\
  && apt-key adv --keyserver keys.gnupg.net --recv-keys 4BCE106E087AFAC0\
  && apt-get autoclean\
  && apt-get -qq update\
- && apt-get install -y --force-yes openrtm-aist-python\
+ && apt-get install -y --force-yes openrtm-aist-python openrtm-aist\
  && apt-get clean\
  && rm -rf /var/lib/apt/lists/*
 
