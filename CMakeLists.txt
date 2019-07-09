@@ -115,12 +115,12 @@ endif()
 
 # postinst, prerm settings
 if(UNIX)
-		configure_file(${CMAKE_CURRENT_SOURCE_DIR}/postinst.in
-			${CMAKE_CURRENT_SOURCE_DIR}/postinst @ONLY
-		)
-		configure_file(${CMAKE_CURRENT_SOURCE_DIR}/prerm.in
-			  ${CMAKE_CURRENT_SOURCE_DIR}/prerm @ONLY
-		)
+  configure_file(${CMAKE_CURRENT_SOURCE_DIR}/postinst.in
+    ${CMAKE_CURRENT_SOURCE_DIR}/postinst @ONLY
+  )
+  configure_file(${CMAKE_CURRENT_SOURCE_DIR}/prerm.in
+    ${CMAKE_CURRENT_SOURCE_DIR}/prerm @ONLY
+  )
 endif()
 
 add_custom_target( ${PROJECT_NAME} ALL
@@ -177,7 +177,7 @@ endif(BUILD_IDL)
 if(UNIX)
     set(CPACK_GENERATOR "${LINUX_PACKAGE_GENERATOR}")
     if(CPACK_DEBIAN_PACKAGE_ARCHITECTURE)
-				set(CPACK_DEBIAN_PACKAGE_CONTROL_EXTRA "${CMAKE_SOURCE_DIR}/postinst;${CMAKE_SOURCE_DIR}/prerm")
+        set(CPACK_DEBIAN_PACKAGE_CONTROL_EXTRA "${CMAKE_SOURCE_DIR}/postinst;${CMAKE_SOURCE_DIR}/prerm")
     endif(CPACK_DEBIAN_PACKAGE_ARCHITECTURE)
     if(CPACK_RPM_PACKAGE_ARCHITECTURE)
         set(CPACK_RPM_POST_INSTALL_SCRIPT_FILE "${CMAKE_SOURCE_DIR}/postinst")
