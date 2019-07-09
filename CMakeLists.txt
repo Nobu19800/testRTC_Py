@@ -77,11 +77,8 @@ endif()
 
 option(BUILD_DOCUMENTATION "Build the documentation" OFF)
 option(BUILD_TESTS "Build the tests" OFF)
+option(BUILD_IDL "Build and install idl" ON)
 
-set(IDL_FILES ""
-              MyService.idl
-              BasicDataType.idl
-)
 
 if(WIN32)
     set(SCRIPT_FILE ""
@@ -122,12 +119,6 @@ if(UNIX)
 		)
 endif()
 
-add_custom_target( ${PROJECT_NAME} ALL
-  COMMAND ${CMAKE_COMMAND} -E make_directory ${PROJECT_BINARY_DIR}/idl
-  COMMAND ${CMAKE_COMMAND} -E copy_directory
-      ${PROJECT_SOURCE_DIR}/idl ${PROJECT_BINARY_DIR}/idl
-)
-
 foreach(target ${EXEC_FILES})
   add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy
@@ -139,9 +130,6 @@ install(PROGRAMS ${EXEC_FILES} DESTINATION "${INSTALL_PREFIX}"
         COMPONENT component)
 
 install(FILES ${PROJECT_SOURCE_DIR}/RTC.xml DESTINATION ${INSTALL_PREFIX}
-        COMPONENT component)
-
-install(DIRECTORY idl DESTINATION "${INSTALL_PREFIX}"
         COMPONENT component)
 
 # add uninstall target
@@ -168,6 +156,10 @@ if(BUILD_TESTS)
     enable_testing()
     add_subdirectory(test)
 endif(BUILD_TESTS)
+
+if(BUILD_IDL)
+    add_subdirectory(idl)
+endif(BUILD_IDL)
 
 if(UNIX)
     set(CPACK_GENERATOR "${LINUX_PACKAGE_GENERATOR}")
