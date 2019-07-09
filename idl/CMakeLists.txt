@@ -7,3 +7,5 @@ else()
     WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
   )
 endif()
+
+add_dependencies(idlcompile ${PROJECT_NAME})
