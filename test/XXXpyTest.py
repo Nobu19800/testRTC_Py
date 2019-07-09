@@ -269,7 +269,7 @@ class XXXpyTest(OpenRTM_aist.DataFlowComponentBase):
 	#	return RTC.RTC_OK
 
 	def runTest(self):
-		return False
+		return True
 	
 
 def RunTest():
