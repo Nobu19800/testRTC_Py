@@ -51,6 +51,8 @@ before_build:
 
 build_script:
   # - python c:\workspace\XXXpy\test\XXXpyTest.py
+  - echo cmake --build ../build --target ALL_BUILD --config Release	
+  - cmake --build ../build --target ALL_BUILD --config Release
   - echo cmake --build ../build --target RUN_TESTS --config Release
   - cmake --build ../build --target RUN_TESTS --config Release
 
