@@ -13,6 +13,7 @@ from __future__ import print_function
 import sys
 import time
 sys.path.append(".")
+print(sys.path)
 
 # Import RTM module
 import OpenRTM_aist
