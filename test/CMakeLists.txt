@@ -1,7 +1,13 @@
-add_custom_target(idlcompile ${CMAKE_BINARY_DIR}/idlcompile.bat
-  WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
-)
 
+if(UNIX)
+  add_custom_target(idlcompile sh ${CMAKE_BINARY_DIR}/idlcompile.sh
+    WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
+  )
+else()
+  add_custom_target(idlcompile ${CMAKE_BINARY_DIR}/idlcompile.bat
+    WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
+  )
+endif()
 
 add_dependencies(idlcompile ${PROJECT_NAME})
 
