@@ -23,4 +23,5 @@ RUN apt-get update\
 
 COPY testRTC_Py /root/testRTC_Py
 WORKDIR /root/testRTC_Py
-RUN mkdir build && cd build && cmake .. -DBUILD_DOCUMENTATION=ON -DBUILD_TESTS=ON && make && make doc && make install && cpack && make test
+RUN mkdir build && cd build && cmake .. -DBUILD_DOCUMENTATION=ON -DBUILD_TESTS=ON && make && make doc && make install && cpack\
+          && export CTEST_OUTPUT_ON_FAILURE=1 && make test
