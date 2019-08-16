@@ -10,14 +10,6 @@ else()
                     ${PROJECT_SOURCE_DIR}/idlcompile.sh)
 endif()
 
-foreach(target ${SCRIPT_FILE})
-  add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy
-        ${target} ${PROJECT_BINARY_DIR}
-  )
-endforeach()
-
-
 if(UNIX)
   add_custom_target(idlcompile ALL sh ${CMAKE_BINARY_DIR}/idlcompile.sh
     WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
@@ -28,7 +20,12 @@ else()
   )
 endif()
 
-add_dependencies(idlcompile ${PROJECT_NAME})
+foreach(target ${SCRIPT_FILE})
+  if(EXISTS ${target})
+    configure_file(${target} ${CMAKE_BINARY_DIR}/ COPYONLY)
+  endif()
+endforeach()
+
 
 install(PROGRAMS ${SCRIPT_FILE} DESTINATION "${INSTALL_PREFIX}"
         COMPONENT component)
