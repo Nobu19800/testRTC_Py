@@ -23,11 +23,10 @@ endif()
 foreach(target ${SCRIPT_FILE})
   if(EXISTS ${target})
     configure_file(${target} ${CMAKE_BINARY_DIR}/ COPYONLY)
+    install(PROGRAMS ${target} DESTINATION "${INSTALL_PREFIX}"
+        COMPONENT component)
   endif()
 endforeach()
 
-
-install(PROGRAMS ${SCRIPT_FILE} DESTINATION "${INSTALL_PREFIX}"
-        COMPONENT component)
 install(FILES ${IDL_FILES} DESTINATION idl
         COMPONENT component)
